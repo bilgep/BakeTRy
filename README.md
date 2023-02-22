@@ -13,7 +13,7 @@ The Asp.Net Core 7 Framework functionalities and components used in in this appl
 * Moq
 
 ---
-### Some Application Screen Shots
+### Some of the Application Screen Shots
 
 1. <h4><b>Home Page</b></h4> 
 <p align="center">
