@@ -1,7 +1,6 @@
 # BakeTRy
 
-This repository contains a fictional bakery shop online shopping web site. The site created for the famous turkish pastry Simit's sake :) which is my favorite.
-The Asp.Net Core 7 Framework functionalities and components used in in this application is listed below;
+This repository contains a fictional bakery shop online shopping website. The site was created for the famous Turkish pastry Simit's sake :) which is my favorite. The Asp.Net Core 7 Framework functionalities and components used in this application are listed below;
 * Asp.Net Core 7 Identity
 * Asp.Net Core MVC and View Models
 * Asp.Net Core Razor Pages
