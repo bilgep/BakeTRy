@@ -1,0 +1,51 @@
+﻿
+<br />
+<br />
+<br />
+<br />
+  Enter your search query:
+<input id="txtPastryName" type="text" />
+<button id="searchButton">Search</button>
+<br />
+<br />
+<table id="tblPastries" cellpadding="0" cellspacing="0">
+    <tr>
+        <th style="width: 120px"></th>
+        <th style="width: 120px">Name</th>
+        <th style="width: 90px">Price</th>
+    </tr>
+    <tbody></tbody>
+</table>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+      $("button").click(function(){
+        var searchQuery = $.trim($("#txtPastryName").val());
+            $("table tbody").html("");
+            $.ajax({
+                type: "POST",
+                url: "/api/Search",
+                data: "\"" + searchQuery + "\"",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (pastries) {
+                    var table = $("#tblPastries");
+                    table.find("tr:not(:first)").remove();
+                    $.each(pastries, function (i, pastry) {
+                        $("tbody").append($("<tr>"));
+                        appendElement = $("tbody tr").last();
+                        appendElement.append($("<td>").html('<img src=' + pastry.imageUrl + '>'));
+                        appendElement.append($("<td>").html('<a href="/pastry/details/' + pastry.pastryId + '">' + pastry.name + '</a>'));
+                        appendElement.append($("<td>").html(pastry.price));
+                    });
+                },
+                error: function (xhr, status, error) {
+                        console.log(xhr)
+                }
+            });
+          });
+        });
+
+</script>

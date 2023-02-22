@@ -1,0 +1,20 @@
+﻿@model HomeViewModel
+
+<partial name="_Carousel" />
+
+<div class="text-center">
+    @*<img src="/img/logo.jpg" class="logo-mark mx-auto" />*@
+    <p></p>
+    <h1>Turkish style bakery shop</h1>
+    <h4>Buy the best quality pastry online!</h4>
+
+    <div class="pastry-of-the-week">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach (var pastry in Model.HomePagePastries)
+            {
+                <partial name="_PastryCard" model="pastry" />
+            }
+        </div>
+
+    </div>
+</div>

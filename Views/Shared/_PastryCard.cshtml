@@ -1,0 +1,26 @@
+﻿@model Pastry
+
+<div class="col">
+    <div class="card pastry-card">
+        <img src="@Model.ImageUrl" class="card-img-top" alt="@Model.Name">
+        <div class="card-body pastry-button">
+            <h4 class="d-grid">
+                <a class="btn btn-secondary" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-pastryId="@Model.PastryId">
+                    + Add to cart
+                </a>
+            </h4>
+
+            <div class="d-flex justify-content-between mt-2">
+                <h2 class="text-start">
+                    <a asp-controller="Pastry"
+                       asp-action="Details"
+                       asp-route-id="@Model.PastryId"
+                       class="pastry-link">@Model.Name</a>
+                </h2>
+                <h5 class="text-nowrap">
+                    @Model.Price.ToString("c", CultureInfo.GetCultureInfo("tr-TR"))
+                </h5>
+            </div>
+        </div>
+    </div>
+</div>

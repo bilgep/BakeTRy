@@ -1,0 +1,42 @@
+﻿@model ShoppingCartViewModel
+
+<h3 class="my-5">
+    Shopping cart
+</h3>
+
+
+<div class="row gx-3">
+    <div class="col-8">
+        @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
+        {
+            <div class="card shopping-cart-card mb-2">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="@line.PastryItem.ImageUrl" class="img-fluid rounded-start p-2" alt="@line.PastryItem.Name">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-text">@line.Amount x @line.PastryItem.Name</h5>
+                            <div class="d-flex justify-content-between">
+                                <h6>@line.PastryItem.Description</h6>
+                                <h2>@line.PastryItem.Price.ToString("c", CultureInfo.GetCultureInfo("tr-TR"))</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col-4">
+        <div class="card shopping-cart-card p-3">
+            <div class="row">
+                <h4 class="col">Total:</h4>
+                <h4 class="col text-end">@Model.CartTotal.ToString("c", CultureInfo.GetCultureInfo("tr-TR"))</h4>
+            </div>
+            <hr />
+            <div class="text-center d-grid">
+                <a class="btn btn-secondary" asp-controller="Order" asp-action="Checkout"><h4>Check out now!</h4></a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1 @@
+Server=(localdb)\\MSSQLLocalDB;Database=Baketry;IntegratedSecurity=True;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
